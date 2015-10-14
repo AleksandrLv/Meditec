@@ -1280,7 +1280,7 @@ li.card-product_info_list_header {
 
 .company_about p {
     font-size: 12px;
-    color: #a8a8a8;
+    color: #356000;
     font-weight: bold;
     font-style: italic;
     line-height: 14px;
@@ -1298,7 +1298,7 @@ li.card-product_info_list_header {
 .company_product_title-container {
     display: inline-block;
     vertical-align: top;
-    width: 150px;
+    width: 180px;
     box-sizing: border-box;
 }
 

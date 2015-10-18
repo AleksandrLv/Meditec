@@ -74,6 +74,56 @@ var Catalog = {
     }
 };
 
+var Categories = {
+    $categories: null,
+
+    init: function () {
+        this.$categories = $(".category");
+        this.splitLinks();
+        this.$categories.maxHeight();
+        this.bind();
+    },
+
+    bind: function () {
+        var self = this;
+        $(window).resize(function(){
+            self.$categories.css({"height":"auto"});
+            self.$categories.maxHeight();
+        });
+    },
+
+    splitLinks: function () {
+        var $categoryLinks = $(".category_links");
+        
+        $categoryLinks.each(function(index){
+            var $links = $(this).find(".category_links_item");
+            var length = $links.length;
+            var center = (length/2 | 0) + 1;
+            var heightColumn1 = 0;
+            var heightColumn2 = 0;
+
+            for (var i = 0; i < center; i++) {
+                heightColumn1 += $links.eq(i).height();
+            }
+            
+            for (var i = center; i < length; i++) {
+                heightColumn2 += $links.eq(i).height();
+                $links.eq(i).css({
+                    "position": "relative",
+                    "left": "50%",
+                    "top": -heightColumn1
+                });    
+            }
+            if (heightColumn1 > heightColumn2) {
+                $(this).css({"height":heightColumn1});    
+            } else {
+                $(this).css({"height":heightColumn2});
+            }
+            
+        });
+    }
+};
+
 (function ($) {
     $.fn.maxHeight = function () {
         var maxHeight = "0px";

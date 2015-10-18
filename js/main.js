@@ -1,3 +1,44 @@
+$(document).ready(function () {
+    mainMenu();
+    $(window).resize(function(){
+        mainMenu();
+    });
+});
+
+function mainMenu () {
+    var $menuItems = $(".header_menu > .header_menu_item"),
+        $moreMenuItems = $(".header_menu_more-items"),
+        $moreMenuItemsLinks = $(".header_menu_more-items_drop-down"),
+        docWidth = document.documentElement.clientWidth,
+        minDocWidth = 1050,
+        itemWidth = $menuItems.eq(0).width(),
+        itemsCol = $menuItems.length,
+        visibleItems = docWidth/itemWidth | 0,
+        jsItemClass;
+
+    if (docWidth <= itemWidth * visibleItems + 30) {
+        visibleItems--;
+    }
+
+    if (visibleItems >= itemsCol) {
+        $moreMenuItems.hide();
+    } else {
+        $moreMenuItems.css({"display":"inline-block"});    
+    }
+    
+    i = itemsCol;
+    while(i--) {
+        if (i > visibleItems-1) {
+            $menuItems.eq(i).clone().appendTo(".header_menu_more-items_drop-down").addClass("js-item-"+i);
+            $menuItems.eq(i).hide();
+        } else {
+            $menuItems.eq(i).css({"display":"inline-block"});
+            jsItemClass = ".js-item-"+i;
+            $moreMenuItemsLinks.find(jsItemClass).remove();
+        }
+    }
+}
+
 var CardProduct = {
     init: function () {
         this.info_tabs();

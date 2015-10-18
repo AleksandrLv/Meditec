@@ -304,9 +304,9 @@
                             <p class="card-product_title_info">Предназначен для магнитотерапии в медицинской и эстетической практике.Графический дисплей. Минимальный термический эффект.</p>
                         </div>
                         <div class="card-product_button-group">
-                            <input type="button" class="card-button" value="Задать вопрос">
-                            <input type="button" class="card-button" value="Запросить тз">
-                            <input type="button" class="card-button" value="Заказать кп">
+                            <a href="#popup-question" class="card-button text-popup">Задать вопрос</a>
+                            <a href="#popup-request" class="card-button text-popup">Запросить тз</a>
+                            <a href="#popup-order" class="card-button text-popup">Заказать кп</a>
                         </div>
                     </div>
                 </div>
@@ -372,10 +372,13 @@
                 </div>
 
                 <div class="card-product_button-group">
-                    <input type="button" class="card-button" value="Задать вопрос">
-                    <input type="button" class="card-button" value="Запросить тз">
-                    <input type="button" class="card-button" value="Заказать кп">
+                    <a href="#popup-question" class="card-button text-popup">Задать вопрос</a>
+                    <a href="#popup-request"class="card-button text-popup">Запросить тз</a>
+                    <a href="#popup-order" class="card-button text-popup">Заказать кп</a>
                 </div>
+                <div id="popup-question" class="popup"><h2>задать вопрос</h2></div>
+                <div id="popup-request" class="popup"><h2>Запросить тз</h2></div>
+                <div id="popup-order" class="popup"><h2>Заказать кп</h2></div>
             </div>
         </div>
         <div class="clear-wrapper"></div>
@@ -414,6 +417,13 @@
      $(document).ready(function () {
          CardProduct.init();
          $(".fancybox").fancybox();
+         $(".text-popup").fancybox({
+            maxWidth    : 800,
+            maxHeight   : 600,
+            width       : '70%',
+            height      : '70%',
+            autoSize    : false
+        });
      });
 </script>
 </body>

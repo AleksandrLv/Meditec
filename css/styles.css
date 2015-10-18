@@ -1044,6 +1044,10 @@ footer {
     margin-right: 15px;
     color: #fff;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    padding-top: 8px;
+    box-sizing: border-box;
 }
 
 .card-button:hover {
@@ -1369,6 +1373,10 @@ li.card-product_info_list_header {
 .company_product_about p {
     color: #356000;
     font-size: 12px;
+}
+
+.popup {
+    display: none;
 }
 
 /*MEDIA*/

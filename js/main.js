@@ -8,6 +8,14 @@ var CardProduct = {
             customDirectionNav: $(".card-product_list-img_nav"),
             itemWidth: 72
         });
+        $(".popup-gallery").fancybox();
+        $(".text-popup").fancybox({
+            maxWidth    : 800,
+            maxHeight   : 600,
+            width       : '70%',
+            height      : '70%',
+            autoSize    : false
+        });
     },
 
     info_tabs: function () {
@@ -47,3 +55,34 @@ var CardProduct = {
 
     }
 };
+
+var Catalog = {
+    $products: null,
+
+    init: function () {
+        this.$products = $(".product");
+        this.$products.maxHeight();
+        this.bind();
+    },
+
+    bind: function () {
+        var self = this;
+        $(window).resize(function(){
+            self.$products.css({"height":"auto"});
+            self.$products.maxHeight();
+        });
+    }
+};
+
+(function ($) {
+    $.fn.maxHeight = function () {
+        var maxHeight = "0px";
+        $(this).each(function(index){
+            var height = $(this).css("height");
+            if (height > maxHeight) {
+                maxHeight = height;
+            }
+        });
+        $(this).css({"height":maxHeight});
+    };
+})(jQuery);

@@ -735,7 +735,6 @@ footer {
 
 .product {
     min-width: 170px;
-    min-height: 281px;
     overflow: hidden;
     border: 4px solid #cdcdcd;
     box-sizing: border-box;
@@ -745,6 +744,10 @@ footer {
     margin-left: -3px;
     margin-bottom: 8px;
     position: relative;
+}
+
+.product:hover .button--product{
+    background-color: #356000;
 }
 
 .product:hover {
@@ -810,8 +813,8 @@ footer {
 }
 
 .view_tile .product {
-    width: 550px;
-    height: 142px;
+    padding: 15px 10px;
+    margin-right: -4px;
 }
 
 .view_tile .product_info_tile {
@@ -821,6 +824,7 @@ footer {
 .view_tile .product_img {
     width: 90px;
     height: 110px;
+    vertical-align: middle;
 }
 
 .view_tile .button--product {
@@ -846,11 +850,12 @@ footer {
     position: relative;
     vertical-align: top;
     display: inline-block;
+    vertical-align: middle;
 }
 
 .view_tile .product_preview {
     width: calc(100% - 210px);
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .view_tile .product_title {
@@ -1485,7 +1490,6 @@ li.card-product_info_list_header {
 @media (min-width: 1450px) {
     .view_tile .product {
         width: 49%;
-        height: 165px;
     }
 
     .view_tile .product:nth-child(2n) {
@@ -1496,10 +1500,6 @@ li.card-product_info_list_header {
 @media (min-width: 1600px) {
     .card-product_title_wrapper {
         width: 850px;
-    }
-
-    .view_tile .product {
-        height: 142px;
     }
 }
 

@@ -46,10 +46,14 @@ var CardProduct = {
         $('.card-product_img-gallery_preview').flexslider({
             animation: "slide",
             animationLoop: false,
+            controlNav: false,
+            slideshow: false,
             customDirectionNav: $(".card-product_list-img_nav"),
             itemWidth: 72
         });
+
         $(".popup-gallery").fancybox();
+
         $(".text-popup").fancybox({
             maxWidth    : 800,
             maxHeight   : 600,
@@ -99,37 +103,61 @@ var CardProduct = {
 
 var Catalog = {
     $products: null,
+    $container: null,
+    productWidth: null,
+    containerWidth: null,
 
     init: function () {
         this.$products = $(".product");
-        this.$products.maxHeight();
+        this.$container = $(".products");
+        this.productWidth = this.$products.eq(0).width();
+        this.containerWidth = this.$container.eq(0).width();
+        if (this.productWidth * 2 < this.containerWidth) {
+            this.$products.maxHeight();
+        }
         this.bind();
     },
 
     bind: function () {
         var self = this;
         $(window).resize(function(){
+            self.productWidth = self.$products.eq(0).width();
+            self.containerWidth = self.$container.eq(0).width();
             self.$products.css({"height":"auto"});
-            self.$products.maxHeight();
+            if (self.productWidth * 2 < self.containerWidth) {
+                self.$products.maxHeight();
+            }
         });
     }
 };
 
 var Categories = {
     $categories: null,
+    $container: null,
+    categoryWidth: null,
+    containerWidth: null,
 
     init: function () {
         this.$categories = $(".category");
+        this.$container = $(".categories");
+        this.categoryWidth = this.$categories.eq(0).width();
+        this.containerWidth = this.$container.eq(0).width();
         this.splitLinks();
-        this.$categories.maxHeight();
+        if (this.categoryWidth * 2 < this.containerWidth) {
+            this.$categories.maxHeight();
+        }
         this.bind();
     },
 
     bind: function () {
         var self = this;
         $(window).resize(function(){
+            self.categoryWidth = self.$categories.eq(0).width();
+            self.containerWidth = self.$container.eq(0).width();
             self.$categories.css({"height":"auto"});
-            self.$categories.maxHeight();
+            if (self.categoryWidth * 2 < self.containerWidth) {
+                self.$categories.maxHeight();
+            }
         });
     },
 

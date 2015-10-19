@@ -785,6 +785,7 @@ footer {
     margin-left: -3px;
     margin-bottom: 8px;
     position: relative;
+    vertical-align: top;
 }
 
 .product:hover .button--product{
@@ -1208,6 +1209,7 @@ li.card-product_info_list_header {
     display: inline-block;
     margin-right: -4px;
     margin-bottom: 25px;
+    vertical-align: top;
 }
 
 .category-2level {
